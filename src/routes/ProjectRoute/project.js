@@ -24,9 +24,8 @@ router.post("/", async (req, res) => {
 	res.send(project)
 })
 
-router.put("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
 	const project = await updateProject(req.body, req.params.id)
-	console.log("project ::: ", project)
 	res.send(project)
 })
 

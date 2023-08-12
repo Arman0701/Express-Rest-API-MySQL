@@ -15,6 +15,12 @@ app.use("/user", userRouter)
 app.use("/skill", skillRouter)
 app.use("/project", projectRouter)
 
+// error handlers
+app.use((err, req, res, next) => {
+	console.error(err)
+	res.status(500).send("Server crashed.")
+})
+
 app.listen("3000", () => {
 	console.log("Server has been started on port 3000...")
 })

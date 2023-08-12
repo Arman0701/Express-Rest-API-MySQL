@@ -4,7 +4,7 @@ const query = `
     FROM skills
 `
 
-module.exports = async (id) => {
-	const [skills] = await db.query(query, [id])
+module.exports = async () => {
+	const [skills] = await db.query(query)
 	return skills
 }

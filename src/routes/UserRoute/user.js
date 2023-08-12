@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 	res.send(result)
 })
 
-router.put("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
 	const user = await updateUser(req.body, req.params.id)
 	res.send(user)
 })

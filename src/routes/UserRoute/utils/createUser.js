@@ -1,4 +1,5 @@
 const db = require("../../../config/database")
+const Error = require("../../../utils/throwError")
 const getUser = require("./getUser")
 const query = `
     INSERT INTO users (username, email)
@@ -6,6 +7,13 @@ const query = `
 `
 
 module.exports = async (username, email) => {
-    const [ID] = await db.query(query, [username, email])
-    return await getUser(ID.insertId)
+	if (!email) {
+		return Error.User().email404()
+	}
+	if (!username) {
+		return Error.User().username404()
+	}
+
+	const [user] = await db.query(query, [username, email])
+	return await getUser(user.insertId)
 }

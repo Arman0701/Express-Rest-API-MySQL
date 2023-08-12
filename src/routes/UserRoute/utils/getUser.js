@@ -7,8 +7,10 @@ const query = `
 `
 
 module.exports = async (id) => {
-    const [users] = await db.query(query, [id], (err, result) => {
-        Error.error(err)
-    })
-    return users[0]
+    if (!id) {
+        return Error.User().iD404()
+    }    
+    
+	const [users] = await db.query(query, [id])
+	return users[0]
 }

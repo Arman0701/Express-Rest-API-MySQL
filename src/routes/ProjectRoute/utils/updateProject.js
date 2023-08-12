@@ -1,7 +1,11 @@
 const db = require("../../../config/database")
+const Error = require("../../../utils/throwError")
 const getProject = require("./getProject")
 
 module.exports = async (body, id) => {
+	if (!id) return Error.Project().iD404()
+	if (!body) return Error.Project().body404()
+	
 	const query = `
         UPDATE projects
         SET ${Object.keys(body)

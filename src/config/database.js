@@ -1,4 +1,5 @@
 const { createPool } = require("mysql2")
+const Error = require("../utils/throwError")
 
 const db = createPool({
 	host: process.env.HOST,
@@ -35,13 +36,13 @@ const createSkillTableQuery = `
 
 const init = async () => {
 	try {
-		await db.query("CREATE DATABASE IF NOT EXISTS simpledb;")
-		await db.query("USE simpledb;")
+		await db.query("CREATE DATABASE IF NOT EXISTS simpledb")
+		await db.query("USE simpledb")
 		await db.query(createUserTableQuery)
 		await db.query(createProjectTableQuery)
 		await db.query(createSkillTableQuery)
 	} catch (err) {
-		console.log("err ::: ", err)
+		Error.error(err)
 	}
 }
 

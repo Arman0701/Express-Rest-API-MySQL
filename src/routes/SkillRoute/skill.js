@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 	res.send(skill)
 })
 
-router.put("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
 	const skill = await updateSkill(req.body, req.params.id)
 	res.send(skill)
 })
