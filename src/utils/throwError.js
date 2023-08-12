@@ -19,23 +19,24 @@ class Handler {
 	}
 
 	iD404() {
-		this._message += " " + "Undefined ID!"
+		this._message += " " + "'id' is undefined."
 		return this
 	}
 
 	username404() {
-		this._message += " " + "Undefined username!"
+		this._message += " " + "'username' is undefined."
 		return this
 	}
 
 	email404() {
-		this._message += " " + "Undefined email!"
+		this._message += " " + "'email' is undefined."
 		return this
 	}
 
 	userID404() {
 		this._message +=
 			" " + "'userID' is undefined. User with given id doesn't exist."
+		return this
 	}
 
 	body404() {
