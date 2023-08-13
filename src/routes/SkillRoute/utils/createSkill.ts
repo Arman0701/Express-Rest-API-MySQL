@@ -8,11 +8,11 @@ const query = `
     VALUES (?, ?, ?)
 `
 
-module.exports = async (name, image_url, userID) => {
+export default async (name, image_url, userID) => {
 	if (!userID) return Error.Skill().userID404()
 	if (image_url) return Error.Skill().imageURL404()
 	if (!name) return Error.Skill().name404()
-	
+
 	const user = await getUser(userID)
 
 	if (user) {

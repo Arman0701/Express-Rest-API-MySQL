@@ -4,7 +4,7 @@ const query = `
     SELECT * 
     FROM users
 `
-module.exports = async () => {
+export default async () => {
 	const [users] = await db.query(query)
 	return users
 }

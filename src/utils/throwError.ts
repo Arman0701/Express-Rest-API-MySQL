@@ -62,4 +62,4 @@ class Handler {
 
 const Error = new Handler()
 
-module.exports = Error
+export default Error

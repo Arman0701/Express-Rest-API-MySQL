@@ -6,12 +6,12 @@ import removeUser from "./removeUser"
 import getUserProjects from "./getUserProjects"
 import getUserSkills from "./getUserSkills"
 
-module.exports = {
+export {
 	getUser,
 	getUsers,
 	createUser,
 	updateUser,
 	removeUser,
 	getUserProjects,
-	getUserSkills
+	getUserSkills,
 }

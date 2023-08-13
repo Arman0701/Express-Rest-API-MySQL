@@ -4,7 +4,7 @@ const query = `
     FROM projects
 `
 
-module.exports = async () => {
+export default async () => {
 	const [projects] = await db.query(query)
 	return projects
 }

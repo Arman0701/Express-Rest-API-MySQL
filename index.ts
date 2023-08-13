@@ -1,21 +1,22 @@
-// app init
+console.log("Working ..........................");
+
 import express from "express"
-const app = express()
-require("dotenv").config()
+import dotenv from "dotenv"
 
-// adding middlewares
-app.use(express.json())
-
-// importing routes and initialize them
 import userRouter from  "./src/routes/UserRoute/user"
 import skillRouter from  "./src/routes/SkillRoute/skill"
-import projectRouter from  "./src/routes/ProjectRoute/project"
+import projectRouter from  "./src/routes/ProjectRoute/project" 
+
+const app = express()
+
+dotenv.config()
+
+app.use(express.json())
 
 app.use("/user", userRouter)
 app.use("/skill", skillRouter)
 app.use("/project", projectRouter)
 
-// error handlers
 app.use((err, req, res, next) => {
 	console.error(err)
 	res.status(500).send("Server crashed.")

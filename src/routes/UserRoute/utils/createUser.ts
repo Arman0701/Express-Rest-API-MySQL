@@ -7,7 +7,7 @@ const query = `
     VALUES (?, ?)
 `
 
-module.exports = async (username, email) => {
+export default async (username, email) => {
 	if (!email) {
 		return Error.User().email404()
 	}

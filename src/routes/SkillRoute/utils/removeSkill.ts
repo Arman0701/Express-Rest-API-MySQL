@@ -7,7 +7,7 @@ const query = `
     WHERE id = ?
 `
 
-module.exports = async (id) => {
+export default async (id: number) => {
 	if (!id) return Error.Skill().iD404()
 
 	const skill = await getSkill(id)

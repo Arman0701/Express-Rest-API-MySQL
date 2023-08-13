@@ -7,8 +7,8 @@ const query = `
     WHERE skills.userID = users.id AND skills.userID = ?
 `
 
-module.exports = async (id) => {
-    if (!id) return Error.User().iD404()
+export default async (id) => {
+	if (!id) return Error.User().iD404()
 
 	const [result] = await db.query(query, [+id])
 	return result

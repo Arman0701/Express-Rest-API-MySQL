@@ -7,11 +7,11 @@ const query = `
     WHERE id = ?
 `
 
-module.exports = async (id) => {
-    if (!id) {
-        return Error.User().iD404()
-    }    
-    
+export default async (id) => {
+	if (!id) {
+		return Error.User().iD404()
+	}
+
 	const [users] = await db.query(query, [id])
 	return users[0]
 }

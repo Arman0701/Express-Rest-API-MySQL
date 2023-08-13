@@ -1,13 +1,13 @@
-import { createPool } from "mysql2"
+import mysql from "mysql2/promise"
 
-const db = createPool({
-	host: process.env.HOST,
-	port: process.env.PORT,
-	user: process.env.USER,
-	password: process.env.PASSWORD,
-}).promise()
+const db = mysql.createPool({
+	host: process.env.HOST || "",
+	port: process.env.PORT || "",
+	user: process.env.USER || "",
+	password: process.env.PASSWORD || "",
+})
 
-const createUserTableQuery = `
+const createUserTableQuery: string = `
     CREATE TABLE IF NOT EXISTS users (
         id INT PRIMARY KEY AUTO_INCREMENT,
         username VARCHAR(50),
@@ -15,7 +15,7 @@ const createUserTableQuery = `
     )
 `
 
-const createProjectTableQuery = `
+const createProjectTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS projects (
 		id INT PRIMARY KEY AUTO_INCREMENT,
 		name VARCHAR(50),
@@ -24,7 +24,7 @@ const createProjectTableQuery = `
 	)
 `
 
-const createSkillTableQuery = `
+const createSkillTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS skills (
 		id INT PRIMARY KEY AUTO_INCREMENT,
 		name VARCHAR(50),
@@ -47,4 +47,4 @@ const init = async () => {
 
 init()
 
-module.exports = db
+export default db

@@ -8,7 +8,11 @@ const query = `
     VALUES (?, ?, ?)
 `
 
-module.exports = async (name, desc, userID) => {
+export default async (
+	name: string,
+	desc: string,
+	userID: number
+): Promise<any> => {
 	if (!userID) return Error.Project().userID404()
 	if (!desc) return Error.Project().description404()
 	if (!name) return Error.Project().name404()
@@ -16,6 +20,7 @@ module.exports = async (name, desc, userID) => {
 	const user = await getUser(userID)
 	if (user) {
 		const [project] = await db.query(query, [name, desc, userID])
+
 		return await getProject(project.insertId)
 	}
 

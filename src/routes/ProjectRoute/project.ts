@@ -35,4 +35,4 @@ router.delete("/:id", async (req, res) => {
 	res.send(project)
 })
 
-module.exports = router
+export default router

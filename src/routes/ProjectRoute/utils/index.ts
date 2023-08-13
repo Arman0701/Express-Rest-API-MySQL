@@ -4,7 +4,7 @@ import createProject from "./createProject"
 import updateProject from "./updateProject"
 import removeProject from "./removeProject"
 
-module.exports = {
+export default {
 	getProject,
 	getProjects,
 	createProject,

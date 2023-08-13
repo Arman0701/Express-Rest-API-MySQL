@@ -5,7 +5,7 @@ const query = `
     FROM skills
 `
 
-module.exports = async () => {
+export default async () => {
 	const [skills] = await db.query(query)
 	return skills
 }

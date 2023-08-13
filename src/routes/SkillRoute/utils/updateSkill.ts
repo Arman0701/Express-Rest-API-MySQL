@@ -1,13 +1,13 @@
 import db from "../../../config/database"
 import Error from "../../../utils/throwError"
-import getProject from "./getProject"
+import getSkill from "./getSkill"
 
-module.exports = async (body, id) => {
-	if (!id) return Error.Project().iD404()
-	if (!body) return Error.Project().body404()
-	
+export default async (body, id) => {
+	if (!id) return Error.Skill().iD404()
+	if (!body) return Error.Skill().body404()
+
 	const query = `
-        UPDATE projects
+        UPDATE skills
         SET ${Object.keys(body)
 			.map((key) => `${key} = '${body[key]}'`)
 			.join(", ")}
@@ -15,5 +15,5 @@ module.exports = async (body, id) => {
     `
 
 	await db.query(query)
-	return await getProject(id)
+	return await getSkill(id)
 }

@@ -4,7 +4,7 @@ import createSkill from "./createSkill"
 import updateSkill from "./updateSkill"
 import removeSkill from "./removeSkill"
 
-module.exports = {
+export default {
 	getSkill,
 	getSkills,
 	createSkill,

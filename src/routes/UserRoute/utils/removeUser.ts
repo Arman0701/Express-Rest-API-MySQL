@@ -7,10 +7,10 @@ const query = `
     WHERE id = ?
 `
 
-module.exports = async (id) => {
+export default async (id) => {
 	if (!id) {
-        return Error.User().iD404()
-    }
+		return Error.User().iD404()
+	}
 
 	await db.query("USE simpledb")
 	const user = await getUser(id)

@@ -7,7 +7,7 @@ const query = `
     WHERE id = ?
 `
 
-module.exports = async (id) => {
+export default async (id) => {
 	if (!id) return Error.Project().iD404()
 
 	const project = await getProject(id)
