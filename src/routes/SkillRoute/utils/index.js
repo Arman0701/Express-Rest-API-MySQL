@@ -1,8 +1,8 @@
-const getSkill = require("./getSkill")
-const getSkills = require("./getSkills")
-const createSkill = require("./createSkill")
-const updateSkill = require("./updateSkill")
-const removeSkill = require("./removeSkill")
+import getSkill from "./getSkill"
+import getSkills from "./getSkills"
+import createSkill from "./createSkill"
+import updateSkill from "./updateSkill"
+import removeSkill from "./removeSkill"
 
 module.exports = {
 	getSkill,

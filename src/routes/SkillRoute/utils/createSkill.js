@@ -1,7 +1,8 @@
-const db = require("../../../config/database")
-const getSkill = require("./getSkill")
-const { getUser } = require("../../UserRoute/utils")
-const Error = require("../../../utils/throwError")
+import db from "../../../config/database"
+import getSkill from "./getSkill"
+import { getUser } from "../../UserRoute/utils"
+import Error from "../../../utils/throwError"
+
 const query = `
     INSERT INTO skills(name, image_url, userID)
     VALUES (?, ?, ?)

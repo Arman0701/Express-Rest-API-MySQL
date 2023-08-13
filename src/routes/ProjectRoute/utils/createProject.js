@@ -1,7 +1,7 @@
-const db = require("../../../config/database")
-const getProject = require("./getProject")
-const { getUser } = require("../../UserRoute/utils")
-const Error = require("../../../utils/throwError")
+import db from "../../../config/database"
+import getProject from "./getProject"
+import { getUser } from "../../UserRoute/utils"
+import Error from "../../../utils/throwError"
 
 const query = `
     INSERT INTO projects (name, description, userID)
@@ -12,7 +12,7 @@ module.exports = async (name, desc, userID) => {
 	if (!userID) return Error.Project().userID404()
 	if (!desc) return Error.Project().description404()
 	if (!name) return Error.Project().name404()
-	
+
 	const user = await getUser(userID)
 	if (user) {
 		const [project] = await db.query(query, [name, desc, userID])

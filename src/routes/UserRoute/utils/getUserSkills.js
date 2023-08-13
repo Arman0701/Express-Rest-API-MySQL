@@ -1,5 +1,6 @@
-const db = require("../../../config/database")
-const Error = require("../../../utils/throwError")
+import db from "../../../config/database"
+import Error from "../../../utils/throwError"
+
 const query = `
     SELECT skills.id, skills.name, skills.image_url, skills.userID
     FROM skills, users

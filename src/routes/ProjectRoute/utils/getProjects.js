@@ -1,4 +1,4 @@
-const db = require("../../../config/database")
+import db from "../../../config/database"
 const query = `
     SELECT *
     FROM projects

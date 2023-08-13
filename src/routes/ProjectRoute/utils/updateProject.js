@@ -1,6 +1,6 @@
-const db = require("../../../config/database")
-const Error = require("../../../utils/throwError")
-const getProject = require("./getProject")
+import db from "../../../config/database"
+import Error from "../../../utils/throwError"
+import getProject from "./getProject"
 
 module.exports = async (body, id) => {
 	if (!id) return Error.Project().iD404()

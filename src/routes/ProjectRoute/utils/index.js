@@ -1,8 +1,8 @@
-const getProject = require("./getProject")
-const getProjects = require("./getProjects")
-const createProject = require("./createProject")
-const updateProject = require("./updateProject")
-const removeProject = require("./removeProject")
+import getProject from "./getProject"
+import getProjects from "./getProjects"
+import createProject from "./createProject"
+import updateProject from "./updateProject"
+import removeProject from "./removeProject"
 
 module.exports = {
 	getProject,

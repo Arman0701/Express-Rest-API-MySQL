@@ -1,6 +1,7 @@
-const db = require("../../../config/database")
-const Error = require("../../../utils/throwError")
-const getUser = require("./getUser")
+import db from "../../../config/database"
+import Error from "../../../utils/throwError"
+import getUser from "./getUser"
+
 const query = `
     DELETE FROM users
     WHERE id = ?

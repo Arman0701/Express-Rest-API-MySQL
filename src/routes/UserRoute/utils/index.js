@@ -1,10 +1,10 @@
-const getUser = require("./getUser")
-const getUsers = require("./getUsers")
-const createUser = require("./createUser")
-const updateUser = require("./updateUser")
-const removeUser = require("./removeUser")
-const getUserProjects = require("./getUserProjects")
-const getUserSkills = require("./getUserSkills")
+import getUser from "./getUser"
+import getUsers from "./getUsers"
+import createUser from "./createUser"
+import updateUser from "./updateUser"
+import removeUser from "./removeUser"
+import getUserProjects from "./getUserProjects"
+import getUserSkills from "./getUserSkills"
 
 module.exports = {
 	getUser,

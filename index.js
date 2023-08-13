@@ -1,5 +1,5 @@
 // app init
-const express = require("express")
+import express from "express"
 const app = express()
 require("dotenv").config()
 
@@ -7,9 +7,9 @@ require("dotenv").config()
 app.use(express.json())
 
 // importing routes and initialize them
-const userRouter = require("./src/routes/UserRoute/user")
-const skillRouter = require("./src/routes/SkillRoute/skill")
-const projectRouter = require("./src/routes/ProjectRoute/project")
+import userRouter from  "./src/routes/UserRoute/user"
+import skillRouter from  "./src/routes/SkillRoute/skill"
+import projectRouter from  "./src/routes/ProjectRoute/project"
 
 app.use("/user", userRouter)
 app.use("/skill", skillRouter)

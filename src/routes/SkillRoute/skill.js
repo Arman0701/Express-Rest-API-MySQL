@@ -1,12 +1,13 @@
-const {
+import {
 	getSkill,
 	getSkills,
 	createSkill,
 	updateSkill,
 	removeSkill,
-} = require("./utils")
+} from "./utils"
 
-const router = require("express").Router()
+import express from "express"
+const router = express.Router()
 
 router.get("/", async (req, res) => {
 	const skills = await getSkills()

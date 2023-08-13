@@ -1,6 +1,7 @@
-const db = require("../../../config/database")
-const Error = require("../../../utils/throwError")
-const getProject = require("./getProject")
+import db from "../../../config/database"
+import Error from "../../../utils/throwError"
+import getProject from "./getProject"
+
 const query = `
     DELETE FROM projects
     WHERE id = ?
@@ -8,7 +9,7 @@ const query = `
 
 module.exports = async (id) => {
 	if (!id) return Error.Project().iD404()
-	
+
 	const project = await getProject(id)
 	await db.query(query, [id])
 	return project

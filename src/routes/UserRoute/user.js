@@ -1,4 +1,4 @@
-const {
+import {
 	getUsers,
 	getUser,
 	createUser,
@@ -6,9 +6,10 @@ const {
 	updateUser,
 	getUserProjects,
 	getUserSkills,
-} = require("./utils")
+} from "./utils"
 
-const router = require("express").Router()
+import express from "express"
+const router = express.Router()
 
 router.get("/", async (req, res) => {
 	const user = await getUsers()
