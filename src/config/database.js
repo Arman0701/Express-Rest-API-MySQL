@@ -1,5 +1,4 @@
 const { createPool } = require("mysql2")
-const Error = require("../utils/throwError")
 
 const db = createPool({
 	host: process.env.HOST,
@@ -42,7 +41,7 @@ const init = async () => {
 		await db.query(createProjectTableQuery)
 		await db.query(createSkillTableQuery)
 	} catch (err) {
-		Error.error(err)
+		console.error(err)
 	}
 }
 
