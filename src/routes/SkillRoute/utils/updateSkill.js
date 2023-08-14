@@ -1,8 +1,8 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
-import getSkill from "./getSkill"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
+import getSkill from "./getSkill.js"
 
-module.exports = async (body, id) => {
+export default async (body, id) => {
 	if (!id) return Error.Skill().iD404()
 	if (!body) return Error.Skill().body404()
 

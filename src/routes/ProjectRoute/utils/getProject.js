@@ -1,14 +1,14 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
 const query = `
     SELECT *
     FROM projects
     WHERE id = ?
 `
 
-module.exports = async (id) => {
-    if (!id) return Error.Project().iD404()
-    
-    const [projects] = await db.query(query, [id])
-    return projects[0]
+export default async (id) => {
+	if (!id) return Error.Project().iD404()
+
+	const [projects] = await db.query(query, [id])
+	return projects[0]
 }

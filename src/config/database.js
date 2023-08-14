@@ -47,4 +47,4 @@ const init = async () => {
 
 init()
 
-module.exports = db
+export default db

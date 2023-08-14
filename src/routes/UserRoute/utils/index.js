@@ -1,17 +1,17 @@
-import getUser from "./getUser"
-import getUsers from "./getUsers"
-import createUser from "./createUser"
-import updateUser from "./updateUser"
-import removeUser from "./removeUser"
-import getUserProjects from "./getUserProjects"
-import getUserSkills from "./getUserSkills"
+import getUser from "./getUser.js"
+import getUsers from "./getUsers.js"
+import createUser from "./createUser.js"
+import updateUser from "./updateUser.js"
+import removeUser from "./removeUser.js"
+import getUserProjects from "./getUserProjects.js"
+import getUserSkills from "./getUserSkills.js"
 
-module.exports = {
+export {
 	getUser,
 	getUsers,
-	createUser,
 	updateUser,
 	removeUser,
 	getUserProjects,
-	getUserSkills
+	getUserSkills,
+	createUser,
 }

@@ -1,11 +1,11 @@
-import db from "../../../config/database"
+import db from "../../../config/database.js"
 
 const query = `
     SELECT *
     FROM skills
 `
 
-module.exports = async () => {
+export default async () => {
 	const [skills] = await db.query(query)
 	return skills
 }

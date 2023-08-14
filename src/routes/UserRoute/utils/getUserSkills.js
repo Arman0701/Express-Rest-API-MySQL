@@ -1,5 +1,5 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
 
 const query = `
     SELECT skills.id, skills.name, skills.image_url, skills.userID
@@ -7,8 +7,8 @@ const query = `
     WHERE skills.userID = users.id AND skills.userID = ?
 `
 
-module.exports = async (id) => {
-    if (!id) return Error.User().iD404()
+export default async (id) => {
+	if (!id) return Error.User().iD404()
 
 	const [result] = await db.query(query, [+id])
 	return result

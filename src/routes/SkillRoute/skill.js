@@ -4,7 +4,7 @@ import {
 	createSkill,
 	updateSkill,
 	removeSkill,
-} from "./utils"
+} from "./utils/index.js"
 
 import express from "express"
 const router = express.Router()
@@ -35,4 +35,4 @@ router.delete("/:id", async (req, res) => {
 	res.send(skill)
 })
 
-module.exports = router
+export default router

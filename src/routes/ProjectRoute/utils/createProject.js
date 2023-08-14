@@ -1,14 +1,14 @@
-import db from "../../../config/database"
-import getProject from "./getProject"
-import { getUser } from "../../UserRoute/utils"
-import Error from "../../../utils/throwError"
+import db from "../../../config/database.js"
+import getProject from "./getProject.js"
+import { getUser } from "../../UserRoute/utils/index.js"
+import Error from "../../../utils/throwError.js"
 
 const query = `
     INSERT INTO projects (name, description, userID)
     VALUES (?, ?, ?)
 `
 
-module.exports = async (name, desc, userID) => {
+export default async (name, desc, userID) => {
 	if (!userID) return Error.Project().userID404()
 	if (!desc) return Error.Project().description404()
 	if (!name) return Error.Project().name404()

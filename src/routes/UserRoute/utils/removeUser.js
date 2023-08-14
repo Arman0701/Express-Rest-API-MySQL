@@ -1,16 +1,16 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
-import getUser from "./getUser"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
+import getUser from "./getUser.js"
 
 const query = `
     DELETE FROM users
     WHERE id = ?
 `
 
-module.exports = async (id) => {
+export default async (id) => {
 	if (!id) {
-        return Error.User().iD404()
-    }
+		return Error.User().iD404()
+	}
 
 	await db.query("USE simpledb")
 	const user = await getUser(id)

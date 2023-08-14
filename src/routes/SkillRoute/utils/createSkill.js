@@ -1,18 +1,18 @@
-import db from "../../../config/database"
-import getSkill from "./getSkill"
-import { getUser } from "../../UserRoute/utils"
-import Error from "../../../utils/throwError"
+import db from "../../../config/database.js"
+import getSkill from "./getSkill.js"
+import { getUser } from "../../UserRoute/utils/index.js"
+import Error from "../../../utils/throwError.js"
 
 const query = `
     INSERT INTO skills(name, image_url, userID)
     VALUES (?, ?, ?)
 `
 
-module.exports = async (name, image_url, userID) => {
+export default async (name, image_url, userID) => {
 	if (!userID) return Error.Skill().userID404()
 	if (image_url) return Error.Skill().imageURL404()
 	if (!name) return Error.Skill().name404()
-	
+
 	const user = await getUser(userID)
 
 	if (user) {

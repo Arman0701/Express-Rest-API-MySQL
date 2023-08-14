@@ -6,7 +6,7 @@ import {
 	updateUser,
 	getUserProjects,
 	getUserSkills,
-} from "./utils"
+} from "./utils/index.js"
 
 import express from "express"
 const router = express.Router()
@@ -48,4 +48,4 @@ router.delete("/:id", async (req, res) => {
 	res.send(user)
 })
 
-module.exports = router
+export default router

@@ -1,10 +1,10 @@
-import getSkill from "./getSkill"
-import getSkills from "./getSkills"
-import createSkill from "./createSkill"
-import updateSkill from "./updateSkill"
-import removeSkill from "./removeSkill"
+import getSkill from "./getSkill.js"
+import getSkills from "./getSkills.js"
+import createSkill from "./createSkill.js"
+import updateSkill from "./updateSkill.js"
+import removeSkill from "./removeSkill.js"
 
-module.exports = {
+export {
 	getSkill,
 	getSkills,
 	createSkill,

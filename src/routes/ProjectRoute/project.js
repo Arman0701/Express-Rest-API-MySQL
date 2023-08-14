@@ -4,7 +4,7 @@ import {
 	createProject,
 	updateProject,
 	removeProject,
-} from "./utils"
+} from "./utils/index.js"
 
 import express from "express"
 const router = express.Router()
@@ -35,4 +35,4 @@ router.delete("/:id", async (req, res) => {
 	res.send(project)
 })
 
-module.exports = router
+export default router
