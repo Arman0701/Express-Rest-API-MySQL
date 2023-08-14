@@ -1,5 +1,5 @@
-import db from "../../../config/database"
-const query = `
+import db from "../../../config/database.js"
+const query: string = `
     SELECT *
     FROM projects
 `

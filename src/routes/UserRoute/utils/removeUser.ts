@@ -1,13 +1,13 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
-import getUser from "./getUser"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
+import getUser from "./getUser.js"
 
-const query = `
+const query: string = `
     DELETE FROM users
     WHERE id = ?
 `
 
-export default async (id) => {
+export default async (id: number) => {
 	if (!id) {
 		return Error.User().iD404()
 	}

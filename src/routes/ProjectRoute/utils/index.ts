@@ -1,13 +1,7 @@
-import getProject from "./getProject"
-import getProjects from "./getProjects"
-import createProject from "./createProject"
-import updateProject from "./updateProject"
-import removeProject from "./removeProject"
+import getProject from "./getProject.js"
+import getProjects from "./getProjects.js"
+import createProject from "./createProject.js"
+import updateProject from "./updateProject.js"
+import removeProject from "./removeProject.js"
 
-export default {
-	getProject,
-	getProjects,
-	createProject,
-	updateProject,
-	removeProject,
-}
+export { getProject, getProjects, createProject, updateProject, removeProject }

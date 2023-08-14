@@ -1,15 +1,15 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
 
-const query = `
+const query: string = `
     SELECT  projects.id, projects.name, projects.description, projects.userID
     FROM projects, users
     WHERE projects.userID = users.id AND projects.userID = ? 
 `
 
-export default async (id) => {
+export default async (id: number) => {
 	if (!id) return Error.User().iD404()
 
-	const [result] = await db.query(query, [+id])
+	const [result] = await db.query(query, [id])
 	return result
 }

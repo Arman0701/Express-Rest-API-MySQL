@@ -1,12 +1,12 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
-import getProject from "./getProject"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
+import getProject from "./getProject.js"
 
-export default async (body, id) => {
+export default async (body: any, id: number) => {
 	if (!id) return Error.Project().iD404()
 	if (!body) return Error.Project().body404()
 
-	const query = `
+	const query: string = `
         UPDATE projects
         SET ${Object.keys(body)
 			.map((key) => `${key} = '${body[key]}'`)

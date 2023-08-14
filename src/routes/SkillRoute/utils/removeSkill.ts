@@ -1,8 +1,8 @@
-import db from "../../../config/database"
-import Error from "../../../utils/throwError"
-import getSkill from "./getSkill"
+import db from "../../../config/database.js"
+import Error from "../../../utils/throwError.js"
+import getSkill from "./getSkill.js"
 
-const query = `
+const query: string = `
     DELETE FROM skills
     WHERE id = ?
 `
