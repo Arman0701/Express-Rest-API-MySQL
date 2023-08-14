@@ -1,5 +1,5 @@
 import db from "../../../config/database.js"
-import Error from "../../../utils/throwError.js"
+// import Error from "../../../utils/throwError.js"
 
 const query: string = `
     SELECT skills.id, skills.name, skills.image_url, skills.userID
@@ -8,7 +8,7 @@ const query: string = `
 `
 
 export default async (id: number) => {
-	if (!id) return Error.User().iD404()
+	// if (!id) return Error.User().iD404()
 
 	const [result] = await db.query(query, [+id])
 	return result
