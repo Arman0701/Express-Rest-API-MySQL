@@ -1,15 +1,11 @@
-console.log("Working ..........................");
+import express, { NextFunction, Request, Response } from "express"
+import "dotenv/config"
 
-import express from "express"
-import dotenv from "dotenv"
-
-import userRouter from  "./src/routes/UserRoute/user"
-import skillRouter from  "./src/routes/SkillRoute/skill"
-import projectRouter from  "./src/routes/ProjectRoute/project" 
+import userRouter from "./src/routes/UserRoute/user.js"
+import skillRouter from "./src/routes/SkillRoute/skill.js"
+import projectRouter from "./src/routes/ProjectRoute/project.js"
 
 const app = express()
-
-dotenv.config()
 
 app.use(express.json())
 
@@ -17,7 +13,7 @@ app.use("/user", userRouter)
 app.use("/skill", skillRouter)
 app.use("/project", projectRouter)
 
-app.use((err, req, res, next) => {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 	console.error(err)
 	res.status(500).send("Server crashed.")
 })
