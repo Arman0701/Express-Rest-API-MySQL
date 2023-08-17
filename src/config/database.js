@@ -1,10 +1,10 @@
 import { createPool } from "mysql2"
 
 const db = createPool({
-	host: process.env.HOST,
-	port: process.env.PORT,
-	user: process.env.USER,
-	password: process.env.PASSWORD,
+	host: "localhost",
+	port: "3300",
+	user: "root",
+	password: "root",
 }).promise()
 
 const createUserTableQuery = `

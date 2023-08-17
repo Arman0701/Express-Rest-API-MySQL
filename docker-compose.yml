@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+    mysql_server:
+        image: mysql:8.1
+        environment:
+            - HOST=localhost
+            - USER=root
+            - PASSWORD=root
+            - PORT=3306
+            - MYSQL_ROOT_PASSWORD=root
