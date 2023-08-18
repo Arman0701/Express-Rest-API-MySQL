@@ -1,4 +1,5 @@
 import db from "../../../config/database.js"
+import { IUser, UUserReturnType } from "../../../types/models.js"
 import Error, { IHandler } from "../../../utils/throwError.js"
 import getUser from "./getUser.js"
 
@@ -7,18 +8,7 @@ const query: string = `
     VALUES (?, ?)
 `
 
-import { RowDataPacket } from "mysql2"
-
-interface IUser extends RowDataPacket {
-	id: number
-	username: string
-	email: string
-}
-
-export default async (
-	username: string,
-	email: string
-): Promise<IUser | IHandler> => {
+export default async ({ username, email }: IUser): UUserReturnType => {
 	if (!email) {
 		return Error.User().email404()
 	}

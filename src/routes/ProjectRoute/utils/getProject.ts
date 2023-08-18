@@ -1,4 +1,5 @@
 import db from "../../../config/database.js"
+import { UProjectReturnType } from "../../../types/models.js"
 import Error from "../../../utils/throwError.js"
 const query: string = `
     SELECT *
@@ -6,7 +7,7 @@ const query: string = `
     WHERE id = ?
 `
 
-export default async (id: number) => {
+export default async (id: number): UProjectReturnType => {
 	if (!id) return Error.Project().iD404()
 
 	const [projects] = await db.query(query, [id])

@@ -1,8 +1,9 @@
 import db from "../../../config/database.js"
+import { IBody, UUserReturnType } from "../../../types/models.js"
 import Error from "../../../utils/throwError.js"
 import getUser from "./getUser.js"
 
-export default async (body: any, id: number) => {
+export default async (body: IBody, id: number): UUserReturnType => {
 	if (!body) return Error.User().body404()
 	if (!id) return Error.User().iD404()
 

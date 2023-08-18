@@ -4,6 +4,7 @@ const query: string = `
     FROM projects
 `
 
+// TODO: add the return type of function
 export default async () => {
 	const [projects] = await db.query(query)
 	return projects

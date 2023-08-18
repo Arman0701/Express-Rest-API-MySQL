@@ -5,6 +5,7 @@ const query: string = `
     FROM skills
 `
 
+// TODO: add the return type of function
 export default async () => {
 	const [skills] = await db.query(query)
 	return skills

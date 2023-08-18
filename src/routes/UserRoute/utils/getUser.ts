@@ -1,4 +1,5 @@
 import db from "../../../config/database.js"
+import { UUserReturnType } from "../../../types/models.js"
 import Error from "../../../utils/throwError.js"
 
 const query: string = `
@@ -7,7 +8,7 @@ const query: string = `
     WHERE id = ?
 `
 
-export default async (id: number) => {
+export default async (id: number): UUserReturnType => {
 	if (!id) {
 		return Error.User().iD404()
 	}

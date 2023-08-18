@@ -8,7 +8,9 @@ const query: string = `
     VALUES (?, ?, ?)
 `
 
-export default async (name: string, desc: string, userID: number) => {
+import { IProject, UProjectReturnType } from "../../../types/models.js"
+
+export default async ({ name, desc, userID }: IProject): UProjectReturnType => {
 	if (!userID) return Error.Project().userID404()
 	if (!desc) return Error.Project().description404()
 	if (!name) return Error.Project().name404()

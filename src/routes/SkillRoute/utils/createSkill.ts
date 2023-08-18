@@ -4,11 +4,17 @@ import { getUser } from "../../UserRoute/utils/index.js"
 import Error from "../../../utils/throwError.js"
 
 const query: string = `
-    INSERT INTO skills(name, image_url, userID)
-    VALUES (?, ?, ?)
+INSERT INTO skills(name, image_url, userID)
+VALUES (?, ?, ?)
 `
 
-export default async (name: string, image_url: string, userID: number) => {
+import { ISkill, USkillReturnType } from "../../../types/models.js"
+
+export default async ({
+	name,
+	image_url,
+	userID,
+}: ISkill): USkillReturnType => {
 	if (!userID) return Error.Skill().userID404()
 	if (image_url) return Error.Skill().imageURL404()
 	if (!name) return Error.Skill().name404()
