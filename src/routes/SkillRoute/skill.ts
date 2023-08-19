@@ -1,4 +1,4 @@
-import {Request, Response} from "express"
+import { Request, Response } from "express"
 
 import {
 	getSkill,
@@ -22,8 +22,7 @@ router.get("/:id", async (req: Request, res: Response) => {
 })
 
 router.post("/", async (req: Request, res: Response) => {
-	const { name, image_url, userID } = req.body
-	const skill = await createSkill(name, image_url, userID)
+	const skill = await createSkill(req.body)
 	res.send(skill)
 })
 
