@@ -1,11 +1,25 @@
-version: "3.8"
-
 services:
-    mysql_server:
-        image: mysql:8.1
+    nodeapp:
+        build: .
+        restart: always
+        ports:
+            - 3000:3000
+        expose:
+            - 3000
         environment:
-            - HOST=localhost
-            - USER=root
-            - PASSWORD=root
-            - PORT=3306
-            - MYSQL_ROOT_PASSWORD=root
+            HOST: "mysqldb"
+            PORT: "3306"
+            USER: "root"
+            PASSWORD: "root"
+        depends_on:
+            - mysqldb
+
+    mysqldb:
+        image: mysql:8.1
+        ports:
+            - 3307:3306
+        expose:
+            - 3306
+        environment:
+            MYSQL_PASSWORD: "root"
+            MYSQL_ROOT_PASSWORD: "root"

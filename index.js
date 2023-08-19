@@ -3,9 +3,6 @@ import userRouter from "./src/routes/UserRoute/user.js"
 import skillRouter from "./src/routes/SkillRoute/skill.js"
 import projectRouter from "./src/routes/ProjectRoute/project.js"
 
-import dotenv from "dotenv"
-dotenv.config()
-
 const app = express()
 app.use(express.json())
 
