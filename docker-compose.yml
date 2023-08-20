@@ -15,6 +15,9 @@ services:
             - mysqldb
 
     mysqldb:
+        volumes:
+            - ./src/data:/var/lib/mysql
+        restart: on-failure
         image: mysql:8.1
         ports:
             - 3307:3306
