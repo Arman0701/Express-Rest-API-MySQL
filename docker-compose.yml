@@ -12,9 +12,15 @@ services:
             USER: "root"
             PASSWORD: "root"
         depends_on:
-            - mysqldb
+            mysqldb:
+                condition: service_healthy
 
     mysqldb:
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+            interval: 5s
+            timeout: 5s
+            retries: 10
         volumes:
             - ./src/data:/var/lib/mysql
         restart: on-failure
