@@ -34,9 +34,7 @@ router.get("/:id/skills", async (req: Request, res: Response) => {
 })
 
 router.post("/", async (req: Request, res: Response) => {
-	const { username, email } = req.body
-
-	const result = await createUser(username, email)
+	const result = await createUser(req.body)
 	res.send(result)
 })
 

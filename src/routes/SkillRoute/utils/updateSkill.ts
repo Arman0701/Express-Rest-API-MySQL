@@ -4,17 +4,18 @@ import Error from "../../../utils/throwError.js"
 import getSkill from "./getSkill.js"
 
 export default async (body: IBody, id: number): USkillReturnType => {
+	const validBody = Object.values(body).every((value) => Boolean(value))
+	if (!body || !validBody) return Error.User().body404()
 	if (!id) return Error.Skill().iD404()
-	if (!body) return Error.Skill().body404()
 
 	const query: string = `
         UPDATE skills
         SET ${Object.keys(body)
 			.map((key) => `${key} = '${body[key]}'`)
 			.join(", ")}
-        WHERE id = ${id}
+        WHERE id = ?
     `
 
-	await db.query(query)
+	await db.query(query, [id])
 	return await getSkill(id)
 }
