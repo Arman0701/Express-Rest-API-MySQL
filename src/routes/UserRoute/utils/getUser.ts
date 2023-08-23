@@ -1,3 +1,4 @@
+import { ResultSetHeader } from "mysql2"
 import db from "../../../config/database.js"
 import { UUserReturnType } from "../../../types/models.js"
 import Error from "../../../utils/throwError.js"
@@ -13,7 +14,7 @@ export default async (id: number): UUserReturnType => {
 		return Error.User().iD404()
 	}
 
-	const [users] = await db.query(query, [id])
-	// @ts-ignore
+	const [users] = await db.query<ResultSetHeader[]>(query, [id])
+
 	return users[0]
 }

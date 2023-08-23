@@ -1,3 +1,4 @@
+import { ResultSetHeader } from "mysql2"
 import db from "../../../config/database.js"
 import { IUser, UUserReturnType } from "../../../types/models.js"
 import Error, { IHandler } from "../../../utils/throwError.js"
@@ -16,7 +17,8 @@ export default async ({ username, email }: IUser): UUserReturnType => {
 		return Error.User().username404()
 	}
 
-	const [user] = await db.query(query, [username, email])
-	// @ts-ignore
+	const [user] = await db.query<ResultSetHeader>(query, [username, email])
+	console.log("user ::: ", user)
+	
 	return await getUser(user.insertId)
 }
