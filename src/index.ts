@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response } from "express"
 import "dotenv/config"
 
-import userRouter from "./src/routes/UserRoute/user.js"
-import skillRouter from "./src/routes/SkillRoute/skill.js"
-import projectRouter from "./src/routes/ProjectRoute/project.js"
+import userRouter from "./routes/UserRoute/user.js"
+import skillRouter from "./routes/SkillRoute/skill.js"
+import projectRouter from "./routes/ProjectRoute/project.js"
 
 const app = express()
 
