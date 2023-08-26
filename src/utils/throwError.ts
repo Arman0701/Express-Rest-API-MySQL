@@ -4,7 +4,7 @@ class Handler {
 	private message: string = ""
 
 	constructor() {}
-	
+
 	User(): Handler {
 		this.message += "User instance error."
 		return this
@@ -52,6 +52,4 @@ class Handler {
 	}
 }
 
-const Error = new Handler()
-
-export default Error
+export const Error = new Handler()

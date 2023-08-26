@@ -7,7 +7,7 @@ export interface IBody {
 export interface IProject {
 	id?: number
 	name: string
-	desc: string
+	description: string
 	userID: number
 }
 

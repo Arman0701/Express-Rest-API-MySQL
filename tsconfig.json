@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
-		// "target": "ES6",
 		"target": "ESNext",
-		"module": "ES6",
+		"module": "CommonJS",
 		"outDir": "./dist",
+		"rootDir": "./src",
 		"removeComments": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,

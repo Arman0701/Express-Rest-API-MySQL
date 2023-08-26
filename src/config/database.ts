@@ -7,29 +7,37 @@ const db = mysql.createPool({
 	password: process.env.PASSWORD,
 })
 
-const createUserTableQuery: string = `
+const userTableQuery: string = `
     CREATE TABLE IF NOT EXISTS users (
-        id INT PRIMARY KEY AUTO_INCREMENT,
-        username VARCHAR(50),
-        email VARCHAR(100)
+        id INT AUTO_INCREMENT NOT NULL UNIQUE,
+        username VARCHAR(50) NOT NULL UNIQUE,
+        email VARCHAR(100) NOT NULL UNIQUE,
+
+		PRIMARY KEY (id)
     )
 `
 
-const createProjectTableQuery: string = `
+const projectTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS projects (
-		id INT PRIMARY KEY AUTO_INCREMENT,
-		name VARCHAR(50),
-		description VARCHAR(50),
-		userID INT
+		id INT AUTO_INCREMENT NOT NULL UNIQUE,
+		name VARCHAR(50) NOT NULL UNIQUE,
+		description VARCHAR(50) NOT NULL,
+		userID INT NOT NULL,
+
+		PRIMARY KEY (id),
+		FOREIGN KEY (userID) REFERENCES users(id)
 	)
 `
 
-const createSkillTableQuery: string = `
+const skillTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS skills (
-		id INT PRIMARY KEY AUTO_INCREMENT,
-		name VARCHAR(50),
-		image_url TEXT,
-		userID INT
+		id INT AUTO_INCREMENT NOT NULL UNIQUE,
+		name VARCHAR(50) NOT NULL UNIQUE,
+		image_url TEXT NOT NULL,
+		userID INT NOT NULL,
+
+		PRIMARY KEY (id),
+		FOREIGN KEY (userID) REFERENCES users(id)
 	)
 `
 
@@ -37,9 +45,9 @@ const init = async () => {
 	try {
 		await db.query("CREATE DATABASE IF NOT EXISTS simpledb")
 		await db.query("USE simpledb")
-		await db.query(createUserTableQuery)
-		await db.query(createProjectTableQuery)
-		await db.query(createSkillTableQuery)
+		await db.query(userTableQuery)
+		await db.query(projectTableQuery)
+		await db.query(skillTableQuery)
 	} catch (err) {
 		console.error(err)
 	}
