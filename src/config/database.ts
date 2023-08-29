@@ -1,10 +1,10 @@
 import mysql from "mysql2/promise"
 
 const db = mysql.createPool({
-	host: process.env.HOST,
-	port: Number(process.env.PORT),
-	user: process.env.USER,
-	password: process.env.PASSWORD,
+	host: process.env.DB_HOST,
+	port: Number(process.env.DB_PORT),
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
 })
 
 const userTableQuery: string = `
@@ -20,7 +20,7 @@ const userTableQuery: string = `
 const projectTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS projects (
 		id INT AUTO_INCREMENT NOT NULL UNIQUE,
-		name VARCHAR(50) NOT NULL UNIQUE,
+		name VARCHAR(50) NOT NULL,
 		description VARCHAR(50) NOT NULL,
 		userID INT NOT NULL,
 
@@ -32,7 +32,7 @@ const projectTableQuery: string = `
 const skillTableQuery: string = `
 	CREATE TABLE IF NOT EXISTS skills (
 		id INT AUTO_INCREMENT NOT NULL UNIQUE,
-		name VARCHAR(50) NOT NULL UNIQUE,
+		name VARCHAR(50) NOT NULL,
 		image_url TEXT NOT NULL,
 		userID INT NOT NULL,
 

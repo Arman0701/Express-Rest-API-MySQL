@@ -1,11 +1,20 @@
 import { Request, Response } from "express"
 import { users } from "../services/UserService"
 
+import { Pagination } from "../utils/paginate"
+
 import express from "express"
 const router = express.Router()
 
 router.get("/", async (req: Request, res: Response) => {
-	const user = await users.getAll()
+	let user = await users.getAll()
+	const q = req.query
+
+	const emptyQueries = Object.keys(q).length === 0
+	if (!emptyQueries) {
+		user = new Pagination(user).paginate(q)
+	}
+
 	res.send(user)
 })
 

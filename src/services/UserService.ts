@@ -16,12 +16,12 @@ export class UserService {
 		this.projects = projects
 	}
 
-	async getAll(): Promise<ResultSetHeader> {
+	async getAll(): Promise<ResultSetHeader[]> {
 		const query: string = `
             SELECT * 
             FROM users
         `
-		const [users] = await db.query<ResultSetHeader>(query)
+		const [users] = await db.query<ResultSetHeader[]>(query)
 		return users
 	}
 

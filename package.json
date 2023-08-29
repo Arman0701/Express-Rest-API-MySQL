@@ -5,9 +5,11 @@
 	"main": "index.js",
 	"scripts": {
 		"build:start": "npm run build && npm start",
+		"docker": "docker compose up -d",
 		"build": "tsc",
 		"start": "node ./dist/index.js",
-		"dev": "concurrently \"tsc --watch\" \"nodemon -q dist/index.js\""
+		"watch": "tsc --watch",
+		"dev": "nodemon -q dist/index.js"
 	},
 	"keywords": [],
 	"author": "",
