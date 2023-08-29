@@ -5,7 +5,7 @@ import { Error } from "../utils/throwError"
 
 import { users } from "./UserService"
 
-class SkillService {
+export class SkillService {
 	//TODO: constructor should get all users from User service
 	// but I'm getting some type errors
 

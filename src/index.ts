@@ -6,6 +6,7 @@ import skillRouter from "./routes/skill.js"
 import projectRouter from "./routes/project.js"
 
 const app = express()
+const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -18,6 +19,6 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 	res.status(500).send("Server crashed.")
 })
 
-app.listen("3000", () => {
-	console.log("Server has been started on port 3000...")
+app.listen(PORT, () => {
+	console.log(`Server has been started on port ${PORT}...`)
 })

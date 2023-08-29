@@ -4,11 +4,17 @@ import { Error } from "../utils/throwError"
 
 import db from "../config/database"
 
-import { skills } from "./SkillService"
-import { projects } from "./ProjectService"
+import { SkillService, skills } from "./SkillService"
+import { ProjectService, projects } from "./ProjectService"
 
-class User {
-	constructor(public skills: any = skills, public projects: any = projects) {}
+export class UserService {
+	protected readonly skills: SkillService
+	protected readonly projects: ProjectService
+	
+	constructor(skills: SkillService, projects: ProjectService) {
+		this.skills = skills
+		this.projects = projects
+	}
 
 	async getAll(): Promise<ResultSetHeader> {
 		const query: string = `
@@ -39,7 +45,7 @@ class User {
 		// const query: string = `
 		// 	SELECT  projects.id, projects.name, projects.description, projects.userID
 		// 	FROM projects, users
-		// 	WHERE projects.userID = users.id AND projects.userID = ? 
+		// 	WHERE projects.userID = users.id AND projects.userID = ?
 		// `
 
 		if (!id) return Error.User().iD404()
@@ -114,4 +120,4 @@ class User {
 	}
 }
 
-export const users = new User(skills, projects)
+export const users = new UserService(skills, projects)
